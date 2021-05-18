@@ -14,9 +14,11 @@ import com.example.backend.models.Owner;
 import com.example.backend.models.Restaurant;
 import com.example.backend.repositories.OwnerRepository;
 import com.example.backend.repositories.RestaurantRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class RestaurantService {
 
   @Autowired

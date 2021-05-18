@@ -3,11 +3,7 @@ package com.example.backend.Services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +19,7 @@ import com.example.backend.repositories.ShoppingCartItemRepository;
 import com.example.backend.repositories.ShoppingCartRepository;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class ShoppingCartItemService {
 
   @Autowired

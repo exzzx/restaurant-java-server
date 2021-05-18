@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.backend.Services.ShoppingCartService;
 import com.example.backend.models.ShoppingCart;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class ShoppingCartController {
 
 

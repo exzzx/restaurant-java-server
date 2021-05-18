@@ -13,12 +13,14 @@ import com.example.backend.models.Order;
 import com.example.backend.models.OrderStatus;
 import com.example.backend.repositories.DelivererRepository;
 import com.example.backend.repositories.OrderRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import static com.example.backend.models.OrderStatus.DELIVERED;
 import static com.example.backend.models.OrderStatus.HOLD;
 import static com.example.backend.models.OrderStatus.SHIPPED;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class OrderService {
 
   @Autowired

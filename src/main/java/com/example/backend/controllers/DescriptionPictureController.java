@@ -16,7 +16,8 @@ import com.example.backend.Services.DescriptionPictureService;
 import com.example.backend.models.DescriptionPicture;
 
 @RestController
-@CrossOrigin(origins = "*", maxAge = 3600)
+//@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class DescriptionPictureController {
 
   @Autowired

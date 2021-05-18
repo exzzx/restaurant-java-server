@@ -13,8 +13,10 @@ import com.example.backend.models.DescriptionPicture;
 import com.example.backend.models.Restaurant;
 import com.example.backend.repositories.DescriptionPictureRepository;
 import com.example.backend.repositories.RestaurantRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class DescriptionPictureService {
 
   @Autowired

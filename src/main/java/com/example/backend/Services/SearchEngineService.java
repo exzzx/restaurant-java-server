@@ -13,8 +13,10 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Request.Builder;
 import okhttp3.Response;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class SearchEngineService {
 
 //  private String apiKey = "OCl_ro6mOdFhGhAH9PE9hPT1PJ5oB5R8jMORNSERElbeZKfbDTXKKzpvJxN7Hzc6Q7yJfr5yQL01efp873R0Re-pkLO_yVj3w4-uBdAeUY7JXQ8AHBN9i8jLFHhxXnYx";

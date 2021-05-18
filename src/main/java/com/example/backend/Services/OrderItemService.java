@@ -19,8 +19,10 @@ import com.example.backend.repositories.CustomerRepository;
 import com.example.backend.repositories.OrderItemRepository;
 import com.example.backend.repositories.OrderRepository;
 import com.example.backend.repositories.ShoppingCartItemRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class OrderItemService {
 
   @Autowired

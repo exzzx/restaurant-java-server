@@ -11,8 +11,10 @@ import com.example.backend.models.ShoppingCartItem;
 import com.example.backend.repositories.CustomerRepository;
 import com.example.backend.repositories.ShoppingCartItemRepository;
 import com.example.backend.repositories.ShoppingCartRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class ShoppingCartService {
 
 

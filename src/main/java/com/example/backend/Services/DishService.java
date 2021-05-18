@@ -15,10 +15,12 @@ import com.example.backend.models.Dish;
 import com.example.backend.models.Restaurant;
 import com.example.backend.repositories.DishRepository;
 import com.example.backend.repositories.RestaurantRepository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import static java.lang.Integer.parseInt;
 
 @Service
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class DishService {
 
 

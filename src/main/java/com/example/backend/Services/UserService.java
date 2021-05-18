@@ -31,7 +31,7 @@ import com.example.backend.repositories.UserRepository;
 
 @Service
 //@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-@CrossOrigin(origins = "http://yumhub-client.s3-website-us-east-1.amazonaws.com", allowCredentials = "true")
+//@CrossOrigin(origins = "*", allowCredentials = "true")
 public class UserService {
 
   @Autowired
@@ -155,6 +155,8 @@ public class UserService {
 
     if (result.isPresent()) {
       Customer customer = result.get();
+      customer.setFirstName("Someone");
+      customer.setLastName("here");
       session.setAttribute("currentUser", customer);
       return customer;
     }

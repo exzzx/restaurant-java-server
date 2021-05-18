@@ -27,7 +27,8 @@ import com.example.backend.models.User;
 @RestController
 //@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 //@CrossOrigin(origins = "http://yumhub-client.s3-website-us-east-1.amazonaws.com", allowCredentials = "true")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+//@CrossOrigin(origins = "*")
 public class UserController {
 
   @Autowired

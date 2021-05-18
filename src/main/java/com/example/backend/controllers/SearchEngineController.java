@@ -10,8 +10,8 @@ import java.io.IOException;
 
 
 @RestController
-@CrossOrigin(origins = "*")
-
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+//@CrossOrigin(origins = "*")
 public class SearchEngineController {
 
 //  @Autowired
