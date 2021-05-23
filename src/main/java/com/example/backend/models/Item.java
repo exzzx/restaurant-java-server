@@ -9,10 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import java.io.Serializable;
 
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-public class Item {
+public class Item  implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

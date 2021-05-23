@@ -14,6 +14,7 @@ com/example/backend/controllers/DescriptionPictureController.class
 com/example/backend/models/OrderStatus.class
 com/example/backend/Services/OrderService.class
 com/example/backend/Services/DishService.class
+com/example/backend/Services/cache/CacheService.class
 com/example/backend/models/ShoppingCartItem.class
 com/example/backend/repositories/ShoppingCartRepository.class
 com/example/backend/Services/ShoppingCartService.class
@@ -35,6 +36,7 @@ com/example/backend/controllers/OrderController.class
 com/example/backend/controllers/RestaurantController.class
 com/example/backend/controllers/ReviewControllerttt.class
 com/example/backend/controllers/OrderItemController.class
+com/example/backend/Services/cache/CacheServiceImpl.class
 com/example/backend/models/Dish.class
 com/example/backend/Services/SearchEngineService.class
 com/example/backend/models/ShoppingCart.class
@@ -42,6 +44,7 @@ com/example/backend/repositories/AdminRepository.class
 com/example/backend/models/Admin.class
 com/example/backend/repositories/OrderItemRepository.class
 com/example/backend/models/Cuisine.class
+com/example/backend/config/RedisConfig.class
 com/example/backend/models/Deliverer.class
 com/example/backend/models/Review.class
 com/example/backend/repositories/OwnerRepository.class

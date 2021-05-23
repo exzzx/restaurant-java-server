@@ -10,7 +10,8 @@ import java.io.IOException;
 
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://3.131.152.182", allowCredentials = "true")
+//@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 //@CrossOrigin(origins = "*")
 public class SearchEngineController {
 

@@ -2,6 +2,7 @@ package com.example.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ import javax.persistence.OneToOne;
 
 
 @Entity
-public class ShoppingCart {
+public class ShoppingCart  implements Serializable {
 
   @Id
   private int id;

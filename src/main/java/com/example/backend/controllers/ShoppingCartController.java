@@ -12,7 +12,8 @@ import com.example.backend.models.ShoppingCart;
 
 //@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://3.131.152.182", allowCredentials = "true")
+//@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class ShoppingCartController {
 
 

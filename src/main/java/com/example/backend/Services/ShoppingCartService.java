@@ -29,9 +29,11 @@ public class ShoppingCartService {
   ShoppingCartItemRepository shoppingCartItemRepository;
 
   public ShoppingCart getPriceForShoppingCart(int cartId) {
-    Optional<ShoppingCart> shoppingCart = shopRepo.findById(cartId);
-    if (shoppingCart.isPresent()) {
-      ShoppingCart existedShoppingCart = shoppingCart.get();
+    ShoppingCart shoppingCart = shopRepo.findById(cartId).orElse(null);
+    ShoppingCart existedShoppingCart = shoppingCart;
+    if ( existedShoppingCart == null ) {
+//    if (shoppingCart.isPresent()) {
+//      ShoppingCart existedShoppingCart = shoppingCart.get();
       Iterable<ShoppingCartItem> existedItems = shoppingCartItemRepository.findAll();
       double totalPrice = 0;
       for (ShoppingCartItem item : existedItems) {

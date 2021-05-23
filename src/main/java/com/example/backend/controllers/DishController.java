@@ -16,7 +16,8 @@ import com.example.backend.Services.DishService;
 import com.example.backend.models.Dish;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://3.131.152.182", allowCredentials = "true")
+//@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 //@CrossOrigin(origins = "*", maxAge = 3600)
 public class DishController {
 

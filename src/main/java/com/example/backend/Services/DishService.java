@@ -3,6 +3,7 @@ package com.example.backend.Services;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -10,6 +11,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import com.example.backend.models.Dish;
 import com.example.backend.models.Restaurant;
@@ -30,6 +32,9 @@ public class DishService {
   @Autowired
   RestaurantRepository restRepo;
 
+  @Autowired
+  private RedisTemplate redisTemplate;
+
   public Dish createDishForRestaurant(int restaurantId, Dish dish) {
     Optional<Restaurant> data = restRepo.findById(restaurantId);
 
@@ -48,15 +53,18 @@ public class DishService {
   }
 
   public List<Dish> sortAllDishByNameForRestaurant(int restaurantId) {
-//    Optional<Restaurant> data = restRepo.findById(restaurantId);
-//    if (!data.isPresent()) {
-//      return null;
-//    }
-//    Restaurant rest = data.get();
-//    List<Dish> dishes = rest.getDishes();
-//    dishes.sort(Dish.DishNameComparator);
-    //int res = Integer.parseInt(restaurantId);
-    List<Dish> dishes = dishRepo.findDishById(restaurantId);
+    String curKey = "restaurant_"+restaurantId;
+    List<Dish> dishes = (List<Dish>) redisTemplate.opsForList().range(curKey,0, -1);
+    if (dishes == null || dishes.isEmpty()){
+      dishes = dishRepo.findDishById(restaurantId);
+      Long result = redisTemplate.opsForList().rightPushAll(curKey, dishes);
+      redisTemplate.expire(curKey, 10, TimeUnit.MINUTES);
+      // if result == null, it failed.
+      if (result == null) {
+        System.out.println("push to redis failed");
+      }
+    }
+
     return dishes;
   }
 

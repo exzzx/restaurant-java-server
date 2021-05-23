@@ -1,6 +1,7 @@
 package com.example.backend.controllers;
 
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.example.backend.Services.UserService;
@@ -25,9 +28,9 @@ import com.example.backend.models.User;
 
 
 @RestController
+@CrossOrigin(origins = "http://3.131.152.182", allowCredentials = "true")
 //@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 //@CrossOrigin(origins = "http://yumhub-client.s3-website-us-east-1.amazonaws.com", allowCredentials = "true")
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 //@CrossOrigin(origins = "*")
 public class UserController {
 
@@ -59,9 +62,9 @@ public class UserController {
     return userService.findUserById(id);
   }
 
-  @GetMapping("/api/currentUser")
-  public User findCurrentUser(HttpSession session) {
-    return userService.findCurrentUser(session);
+  @PostMapping("/api/currentUser")
+  public User findCurrentUser(HttpSession session, @RequestBody JSONObject body) {
+    return userService.findCurrentUser(session, body);
   }
 
   // registers

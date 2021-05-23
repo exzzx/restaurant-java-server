@@ -26,6 +26,7 @@
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/ShoppingCartService.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/OrderService.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/models/Deliverer.java
+/home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/cache/CacheService.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/models/ShoppingCartItem.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/models/Item.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/models/Order.java
@@ -34,6 +35,7 @@
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/repositories/AdminRepository.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/controllers/ShoppingCartItemController.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/ShoppingCartItemService.java
+/home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/cache/CacheServiceImpl.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/models/User.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/controllers/UserController.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/controllers/SearchEngineController.java
@@ -42,6 +44,7 @@
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/ReviewService.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/controllers/RestaurantController.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/controllers/YelpAPIController.java
+/home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/config/RedisConfig.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/Services/SearchEngineService.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/models/Review.java
 /home/zhouzhixuan/IdeaProjects/restaurant-java-server/src/main/java/com/example/backend/repositories/OwnerRepository.java

@@ -1,7 +1,10 @@
 package com.example.backend.Services;
 
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.types.RedisClientInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -12,9 +15,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
 
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import com.example.backend.models.Admin;
@@ -52,6 +59,9 @@ public class UserService {
   @Autowired
   AdminRepository adminRepository;
 
+//  @Autowired
+//  private RedisTemplate redisTemplate;
+
   public List<User> findAllUsers() {
     return (List<User>) repository.findAll();
   }
@@ -74,12 +84,24 @@ public class UserService {
     return data.orElse(null);
   }
 
-  public User findCurrentUser(HttpSession session) {
-    User currentUser = (User) session.getAttribute("currentUser");
+  public User findCurrentUser(HttpSession session, JSONObject body) {
+    String uuidToken = UUID.randomUUID().toString();
+
+    User currentUser = new User();
+    try{
+      currentUser.setUsername(body.getString("username"));
+      currentUser.setPassword(body.getString("password"));
+      currentUser.setUserType(body.getString("userType"));
+    } catch (Exception exception) {
+      System.out.println(exception);
+    }
+
     if (currentUser == null) {
       return null;
     } else {
-      Optional<User> data = repository.findById(currentUser.getId());
+      Optional<User> data = repository.findUserByUsername(currentUser.getUsername());
+
+
       return data.orElse(null);
     }
   }

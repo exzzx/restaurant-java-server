@@ -2,6 +2,7 @@ package com.example.backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "restaurant")
-public class Restaurant {
+public class Restaurant  implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
