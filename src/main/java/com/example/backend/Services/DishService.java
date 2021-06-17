@@ -2,6 +2,7 @@ package com.example.backend.Services;
 
 
 
+import com.example.backend.Services.cache.CacheService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
@@ -35,6 +36,9 @@ public class DishService {
   @Autowired
   private RedisTemplate redisTemplate;
 
+  @Autowired
+  private CacheService cacheService;
+
   public Dish createDishForRestaurant(int restaurantId, Dish dish) {
     Optional<Restaurant> data = restRepo.findById(restaurantId);
 
@@ -54,15 +58,17 @@ public class DishService {
 
   public List<Dish> sortAllDishByNameForRestaurant(int restaurantId) {
     String curKey = "restaurant_"+restaurantId;
-    List<Dish> dishes = (List<Dish>) redisTemplate.opsForList().range(curKey,0, -1);
-    if (dishes == null || dishes.isEmpty()){
-      dishes = dishRepo.findDishById(restaurantId);
-      Long result = redisTemplate.opsForList().rightPushAll(curKey, dishes);
-      redisTemplate.expire(curKey, 10, TimeUnit.MINUTES);
-      // if result == null, it failed.
-      if (result == null) {
-        System.out.println("push to redis failed");
+    List<Dish> dishes = null;
+    dishes = (List<Dish>) cacheService.getFromCommonCache(curKey);
+    if (dishes == null) {
+      dishes = (List<Dish>) redisTemplate.opsForList().range(curKey, 0, -1);
+      if (dishes == null || dishes.isEmpty()) {
+        dishes = dishRepo.findDishById(restaurantId);
+        Long result = redisTemplate.opsForList().rightPushAll(curKey, dishes);
+        redisTemplate.expire(curKey, 10, TimeUnit.MINUTES);
+        // if result == null, it failed.
       }
+      cacheService.setCommonCache(curKey, dishes);
     }
 
     return dishes;
